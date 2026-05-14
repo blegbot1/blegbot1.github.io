@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR1ME RUST | CONFIGS</title>
+    <title>PR1ME RUST | VPN</title>
     <style>
         body {
             background-color: #050505;
@@ -13,100 +13,89 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            overflow-x: hidden;
+            height: 100vh;
         }
-
         .terminal {
             width: 90%;
-            max-width: 500px;
+            max-width: 450px;
             background: rgba(0, 0, 0, 0.9);
             border: 2px solid #00ff41;
-            padding: 25px;
-            box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
+            padding: 30px;
+            box-shadow: 0 0 30px #00ff41;
             text-align: center;
+            position: relative;
+        }
+        /* Эффект бегущей полосы сканирования */
+        .terminal::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: rgba(0, 255, 65, 0.5);
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+
+        h1 { font-size: 1.5em; text-shadow: 0 0 10px #00ff41; }
+        
+        .download-box {
+            margin: 30px 0;
         }
 
-        h1 {
-            font-size: 1.8em;
-            text-shadow: 0 0 10px #00ff41;
-            animation: glitch 2s infinite;
-        }
-
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
-
-        .config-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .download-btn {
+        .btn-zip {
+            display: block;
             color: #050505;
             background: #00ff41;
             text-decoration: none;
-            padding: 15px;
+            padding: 20px;
             font-weight: bold;
-            font-size: 12px;
-            border: 1px solid #00ff41;
+            font-size: 18px;
+            border: 2px solid #00ff41;
             transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px #00ff41; }
+            100% { transform: scale(1); }
         }
 
-        .download-btn:hover {
+        .btn-zip:hover {
             background: transparent;
             color: #00ff41;
-            box-shadow: 0 0 20px #00ff41;
         }
 
-        .tg-link {
-            display: block;
-            margin-top: 30px;
+        .support {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .support a {
             color: #fff;
             text-decoration: none;
             border-bottom: 1px dashed #fff;
-            padding-bottom: 5px;
-            font-size: 16px;
         }
+        .support a:hover { color: #00ff41; border-color: #00ff41; }
 
-        .tg-link:hover { color: #00ff41; border-color: #00ff41; }
-
-        .info { font-size: 10px; margin-top: 20px; opacity: 0.6; }
+        .footer { font-size: 9px; margin-top: 25px; opacity: 0.5; }
     </style>
 </head>
 <body>
 
 <div class="terminal">
-    <h1>[ DOWNLOAD_CENTER ]</h1>
-    <p>> Выберите сервер для скачивания:</p>
+    <h1>[ DATABASE_ACCESS ]</h1>
+    <p>> Архив с 6-ю конфигурациями готов:</p>
     
-    <div class="config-grid">
-        <a href="1.conf" download class="download-btn">ГЕРМАНИЯ .CONF</a>
-        <a href="2.conf" download class="download-btn">АВСТРИЯ .CONF</a>
-        <a href="3.conf" download class="download-btn">БОЛГАРИЯ .CONF</a>
-        <a href="4.conf" download class="download-btn">АРМЕНИЯ .CONF</a>
-        <a href="5.conf" download class="download-btn">ГРУЗИЯ .CONF</a>
-        <a href="6.conf" download class="download-btn">АВСТРАЛИЯ .CONF</a>
+    <div class="download-box">
+        <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip">СКАЧАТЬ АРХИВ .ZIP</a>
     </div>
 
-    <a href="https://t.me/Pr1meRUst" class="container">ПОДДЕРЖКА: @Pr1meRUst</a>
+    <div class="support">
+        СВЯЗЬ: <a href="https://t.me/Pr1meRUst">@Pr1meRUst</a>
+    </div>
 
-    <div class="info">
-        DATABASE: AMNEZIA_WG | ENCRYPTION: ACTIVE
+    <div class="footer">
+        SECURE CONNECTION ESTABLISHED // 2026
     </div>
 </div>
 
