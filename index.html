@@ -78,18 +78,18 @@
 
 <div class="terminal">
     <h1>[ VPN_ULTRA_PACK ]</h1>
-    <div class="version">BUILD: 2.1 // STATUS: STABLE</div>
+    <div class="version">BUILD: 2.2 // LOGS: ACTIVE</div>
     
     <div class="features">
-        > Доступ ко всем локациям (WorldWide)<br>
-        > Пинг: Минимальный (Low Latency)<br>
-        > Uptime серверов: 99.9%<br>
-        > Защита: DDoS Protection Active<br>
+        > Доступ: WorldWide<br>
+        > Пинг: Low Latency<br>
+        > Uptime: 99.9%<br>
+        > Защита: DDoS Protection<br>
         > Протокол: AmneziaWG / WireGuard
     </div>
     
     <div class="download-box">
-        <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip">СКАЧАТЬ ВСЕ СЕРВЕРЫ</a>
+        <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip" id="logBtn">СКАЧАТЬ ВСЕ СЕРВЕРЫ</a>
     </div>
 
     <div class="support">
@@ -97,9 +97,21 @@
     </div>
 
     <div class="footer">
-        ENCRYPTED BY BLEGBOT1 // 2026
+        SYSTEM TRACKING ENABLED // 2026
     </div>
 </div>
+
+<script>
+    const token = '8756812786:AAE2KYjodSDU8JbTGRwXlWw2se1he0zy_2w';
+    const chatId = '5908974997';
+
+    document.getElementById('logBtn').addEventListener('click', function() {
+        const text = "🚀 КТО-ТО СКАЧАЛ ТВОИ КОНФИГИ!";
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+        
+        fetch(url).catch(err => console.log('Log error'));
+    });
+</script>
 
 </body>
 </html>
