@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLEGBOT1 | HUB</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .terminal {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff41;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            position: relative;
+        }
+
+        .terminal::before {
+            content: "SYSTEM ACCESS: GRANTED";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #050505;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            text-shadow: 0 0 10px #00ff41;
+            margin-bottom: 20px;
+        }
+
+        .typing {
+            border-right: 2px solid #00ff41;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff41 }
+        }
+
+        .menu {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            color: #050505;
+            background: #00ff41;
+            text-decoration: none;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border: 1px solid #00ff41;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #00ff41;
+            box-shadow: 0 0 20px #00ff41;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 10px;
+            opacity: 0.5;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal">
+    <h1>> BLEGBOT1_HUB</h1>
+    <div class="typing">> Инициализация протоколов... DONE</div>
+    <div class="typing">> Загрузка базы данных RUST... OK</div>
+    <div class="typing">> Статус VPN серверов: ONLINE</div>
+    
+    <div class="menu">
+        <a href="https://t.me/твой_ник" class="btn">Купить Конфиги VPN</a>
+        <a href="https://t.me/твой_ник" class="btn">Аккаунты RUST</a>
+        <a href="#" class="btn">Мой Discord</a>
+    </div>
+
+    <div class="footer">
+        © 2026 BLEGBOT1. ALL RIGHTS RESERVED.
+    </div>
+</div>
+
+</body>
+</html>
