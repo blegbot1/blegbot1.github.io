@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLEGBOT1 | HUB</title>
+    <title>PR1ME RUST | CONFIGS</title>
     <style>
         body {
             background-color: #050505;
@@ -13,106 +13,100 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .terminal {
             width: 90%;
-            max-width: 600px;
-            background: rgba(0, 0, 0, 0.8);
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.9);
             border: 2px solid #00ff41;
-            padding: 30px;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
-            position: relative;
-        }
-
-        .terminal::before {
-            content: "SYSTEM ACCESS: GRANTED";
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: #050505;
-            padding: 0 10px;
-            font-size: 12px;
-            font-weight: bold;
+            padding: 25px;
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
+            text-align: center;
         }
 
         h1 {
-            font-size: 2em;
-            text-align: center;
+            font-size: 1.8em;
             text-shadow: 0 0 10px #00ff41;
-            margin-bottom: 20px;
+            animation: glitch 2s infinite;
         }
 
-        .typing {
-            border-right: 2px solid #00ff41;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
-            margin: 10px 0;
-            font-size: 14px;
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: #00ff41 }
-        }
-
-        .menu {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
+        .config-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
+            margin-top: 25px;
         }
 
-        .btn {
+        .download-btn {
             color: #050505;
             background: #00ff41;
             text-decoration: none;
-            padding: 12px;
-            text-align: center;
+            padding: 15px;
             font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
+            font-size: 12px;
             border: 1px solid #00ff41;
+            transition: 0.3s;
+            animation: pulse 2s infinite;
         }
 
-        .btn:hover {
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+        }
+
+        .download-btn:hover {
             background: transparent;
             color: #00ff41;
             box-shadow: 0 0 20px #00ff41;
         }
 
-        .footer {
-            margin-top: 20px;
-            font-size: 10px;
-            opacity: 0.5;
-            text-align: center;
+        .tg-link {
+            display: block;
+            margin-top: 30px;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dashed #fff;
+            padding-bottom: 5px;
+            font-size: 16px;
         }
+
+        .tg-link:hover { color: #00ff41; border-color: #00ff41; }
+
+        .info { font-size: 10px; margin-top: 20px; opacity: 0.6; }
     </style>
 </head>
 <body>
 
 <div class="terminal">
-    <h1>> BLEGBOT1_HUB</h1>
-    <div class="typing">> Инициализация протоколов... DONE</div>
-    <div class="typing">> Загрузка базы данных RUST... OK</div>
-    <div class="typing">> Статус VPN серверов: ONLINE</div>
+    <h1>[ DOWNLOAD_CENTER ]</h1>
+    <p>> Выберите сервер для скачивания:</p>
     
-    <div class="menu">
-        <a href="https://t.me/твой_ник" class="btn">Купить Конфиги VPN</a>
-        <a href="https://t.me/твой_ник" class="btn">Аккаунты RUST</a>
-        <a href="#" class="btn">Мой Discord</a>
+    <div class="config-grid">
+        <a href="1.conf" download class="download-btn">ГЕРМАНИЯ .CONF</a>
+        <a href="2.conf" download class="download-btn">АВСТРИЯ .CONF</a>
+        <a href="3.conf" download class="download-btn">БОЛГАРИЯ .CONF</a>
+        <a href="4.conf" download class="download-btn">АРМЕНИЯ .CONF</a>
+        <a href="5.conf" download class="download-btn">ГРУЗИЯ .CONF</a>
+        <a href="6.conf" download class="download-btn">АВСТРАЛИЯ .CONF</a>
     </div>
 
-    <div class="footer">
-        © 2026 BLEGBOT1. ALL RIGHTS RESERVED.
+    <a href="https://t.me/Pr1meRUst" class="container">ПОДДЕРЖКА: @Pr1meRUst</a>
+
+    <div class="info">
+        DATABASE: AMNEZIA_WG | ENCRYPTION: ACTIVE
     </div>
 </div>
 
