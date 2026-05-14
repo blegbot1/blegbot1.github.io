@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR1ME RUST | VPN</title>
+    <title>PR1ME RUST | VPN HUB</title>
     <style>
         body {
             background-color: #050505;
@@ -13,7 +13,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .terminal {
             width: 90%;
@@ -25,7 +25,6 @@
             text-align: center;
             position: relative;
         }
-        /* Эффект бегущей полосы сканирования */
         .terminal::after {
             content: "";
             position: absolute;
@@ -35,10 +34,15 @@
         }
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
 
-        h1 { font-size: 1.5em; text-shadow: 0 0 10px #00ff41; }
+        h1 { font-size: 1.5em; text-shadow: 0 0 10px #00ff41; margin-bottom: 10px; }
+        .version { font-size: 10px; color: #fff; margin-bottom: 20px; }
         
-        .download-box {
-            margin: 30px 0;
+        .features {
+            text-align: left;
+            font-size: 12px;
+            margin-bottom: 20px;
+            border-left: 2px solid #00ff41;
+            padding-left: 15px;
         }
 
         .btn-zip {
@@ -61,21 +65,10 @@
             100% { transform: scale(1); }
         }
 
-        .btn-zip:hover {
-            background: transparent;
-            color: #00ff41;
-        }
+        .btn-zip:hover { background: transparent; color: #00ff41; }
 
-        .support {
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .support a {
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px dashed #fff;
-        }
-        .support a:hover { color: #00ff41; border-color: #00ff41; }
+        .support { margin-top: 25px; font-size: 14px; }
+        .support a { color: #fff; text-decoration: none; font-weight: bold; border-bottom: 1px solid #00ff41; }
 
         .footer { font-size: 9px; margin-top: 25px; opacity: 0.5; }
     </style>
@@ -83,19 +76,26 @@
 <body>
 
 <div class="terminal">
-    <h1>[ DATABASE_ACCESS ]</h1>
-    <p>> Архив с 6-ю конфигурациями готов:</p>
+    <h1>[ VPN_ULTRA_PACK ]</h1>
+    <div class="version">BUILD: 2.0 // STATUS: STABLE</div>
+    
+    <div class="features">
+        > Доступ ко всем локациям<br>
+        > Высокая скорость для RUST<br>
+        > Полный обход блокировок<br>
+        > Протокол: AmneziaWG
+    </div>
     
     <div class="download-box">
-        <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip">СКАЧАТЬ АРХИВ .ZIP</a>
+        <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip">СКАЧАТЬ ВСЕ СЕРВЕРЫ</a>
     </div>
 
     <div class="support">
-        СВЯЗЬ: <a href="https://t.me/Pr1meRUst">@Pr1meRUst</a>
+        СВЯЗЬ / КУПИТЬ: <a href="https://t.me/Pr1meRUst">@Pr1meRUst</a>
     </div>
 
     <div class="footer">
-        SECURE CONNECTION ESTABLISHED // 2026
+        ENCRYPTED BY BLEGBOT1 // 2026
     </div>
 </div>
 
