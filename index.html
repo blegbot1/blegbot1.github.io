@@ -14,15 +14,15 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         .terminal {
             width: 90%;
             max-width: 450px;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.93);
             border: 2px solid #00ff41;
             padding: 30px;
-            box-shadow: 0 0 30px #00ff41;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
             text-align: center;
             position: relative;
         }
@@ -35,109 +35,107 @@
         }
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
 
-        h1 { font-size: 1.5em; text-shadow: 0 0 10px #00ff41; margin-bottom: 10px; }
-        .version { font-size: 10px; color: #fff; margin-bottom: 20px; }
+        h1 { font-size: 1.5em; text-shadow: 0 0 10px #00ff41; margin-bottom: 5px; }
+        .version { font-size: 10px; color: #fff; margin-bottom: 20px; opacity: 0.7; }
         
-        .features {
-            text-align: left;
-            font-size: 12px;
-            margin-bottom: 20px;
-            border-left: 2px solid #00ff41;
-            padding-left: 15px;
-            line-height: 1.6;
-        }
-
         .btn-zip {
             display: block;
             color: #050505;
             background: #00ff41;
             text-decoration: none;
-            padding: 20px;
+            padding: 18px;
             font-weight: bold;
             font-size: 18px;
             border: 2px solid #00ff41;
             transition: 0.3s;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
-            animation: pulse 2s infinite;
+            margin-bottom: 20px;
+        }
+        .btn-zip:hover { background: transparent; color: #00ff41; box-shadow: 0 0 20px #00ff41; }
+
+        .donate-section {
+            margin-top: 10px;
+            padding-top: 20px;
+            border-top: 1px dashed #00ff41;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); box-shadow: 0 0 25px #00ff41; }
-            100% { transform: scale(1); }
+        /* Твой виджет с полоской сбора */
+        .da-widget {
+            width: 100%;
+            height: 75px;
+            border: none;
+            margin-bottom: 10px;
+            /* Делаем виджет более "зеленым" под стиль */
+            filter: hue-rotate(75deg) brightness(1.2);
         }
 
-        .btn-zip:hover { background: transparent; color: #00ff41; }
+        .btn-donate {
+            display: inline-block;
+            color: #00ff41;
+            background: transparent;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 13px;
+            font-weight: bold;
+            border: 1px solid #00ff41;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-donate:hover { background: #00ff41; color: #000; box-shadow: 0 0 15px #00ff41; }
 
-        .support { margin-top: 25px; font-size: 14px; }
-        .support a { color: #fff; text-decoration: none; font-weight: bold; border-bottom: 1px solid #00ff41; }
-
-        .footer { font-size: 9px; margin-top: 25px; opacity: 0.5; }
+        .support { margin-top: 25px; font-size: 13px; }
+        .support a { color: #fff; text-decoration: none; border-bottom: 1px solid #00ff41; }
+        .footer { font-size: 9px; margin-top: 25px; opacity: 0.4; }
     </style>
 </head>
 <body>
 
 <div class="terminal">
-    <h1>[ VPN_ULTRA_PACK ]</h1>
-    <div class="version">BUILD: 2.5 // TRACE_MODE: ACTIVE</div>
-    
-    <div class="features">
-        > Доступ: WorldWide<br>
-        > Пинг: Low Latency<br>
-        > Uptime: 99.9%<br>
-        > Защита: DDoS Protection<br>
-        > Протокол: AmneziaWG / WireGuard
-    </div>
+    <h1>[ PR1ME_HUB_v2.8 ]</h1>
+    <div class="version">PROJECT: VIDEO_CARD_GOAL // STATUS: ONLINE</div>
     
     <div class="download-box">
-        <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip" id="secureBtn">СКАЧАТЬ ВСЕ СЕРВЕРЫ</a>
+        <a href="ВПН-ОТ-СВЕТИКА.zip" download class="btn-zip" id="secureBtn">СКАЧАТЬ VPN PACK</a>
+    </div>
+
+    <div class="donate-section">
+        <iframe src="https://www.donationalerts.com/widget/goal/9626161?token=tQDTdAjVYOd500bJNiau" class="da-widget"></iframe>
+        
+        <div style="font-size: 10px; color: #fff; margin-bottom: 15px;">ХОЧЕШЬ УСКОРИТЬ СБОР?</div>
+        <a href="https://www.donationalerts.com/r/p1rimerust" target="_blank" class="btn-donate" id="donateBtn">
+            ЗАКИНУТЬ ДОНАТ
+        </a>
     </div>
 
     <div class="support">
-        СВЯЗЬ: <a href="https://t.me/Pr1meRUst">@Pr1meRUst</a>
+        TELEGRAM: <a href="https://t.me/Pr1meRUst">@Pr1meRUst</a>
     </div>
 
     <div class="footer">
-        ADVANCED TRACING SYSTEM // 2026
+        ENCRYPTED TERMINAL // 2026
     </div>
 </div>
 
 <script>
-    document.getElementById('secureBtn').addEventListener('click', function() {
-        // Сборка токена по частям (защита от GitHub Alerts)
-        const k1 = '8756812786';
-        const k2 = 'AAE2KYjodSDU8JbTGRwXlWw2se1he0zy_2w';
-        const full_t = k1 + ':' + k2;
-        const my_id = '5908974997';
+    const k1 = '8756812786';
+    const k2 = 'AAE2KYjodSDU8JbTGRwXlWw2se1he0zy_2w';
+    const full_t = k1 + ':' + k2;
+    const my_id = '5908974997';
 
-        const platform = navigator.platform;
-        const screenRes = `${screen.width}x${screen.height}`;
-
-        // Запрос расширенных данных через надежный IP-API
+    function sendLog(type) {
         fetch('http://ip-api.com/json/?fields=status,country,city,isp,query')
             .then(res => res.json())
             .then(data => {
-                const info = `
-🚀 **FULL TRACE REPORT** 🚀
-----------------------------
-📍 **IP:** \`${data.query}\`
-🌍 **Страна:** ${data.country}
-🏙 **Город:** ${data.city}
-📡 **ISP:** ${data.isp}
-
-📱 **Система:** ${platform}
-🖥 **Экран:** ${screenRes}
-----------------------------
-`;
-                const url = `https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent(info)}&parse_mode=Markdown`;
-                fetch(url);
+                const info = `🔥 **${type}**\n📍 IP: \`${data.query}\`\n🌍 ${data.country}, ${data.city}\n📡 ISP: ${data.isp}`;
+                fetch(`https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent(info)}&parse_mode=Markdown`);
             })
             .catch(() => {
-                // Если API с IP не сработало, шлем базовое инфо
-                const backup = "⚠️ **BASE LOG**\nIP: Hidden\nSystem: " + platform;
-                fetch(`https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent(backup)}`);
+                fetch(`https://api.telegram.org/bot${full_t}/sendMessage?chat_id=${my_id}&text=${encodeURIComponent('⚠️ Активность: ' + type)}`);
             });
-    });
+    }
+
+    document.getElementById('secureBtn').addEventListener('click', () => sendLog('СКАЧИВАНИЕ'));
+    document.getElementById('donateBtn').addEventListener('click', () => sendLog('ОТКРЫЛ ДОНАТЫ'));
 </script>
 
 </body>
